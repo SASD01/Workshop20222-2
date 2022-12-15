@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop 2022</title>
+    <style>
+        body {
+            background-color: #f7f8fa;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        form {
+            margin: 30px auto;
+            width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        select {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type='submit'] {
+            background-color: #1a1a1a;
+            padding: 10px;
+            border: 0;
+            color: #fff;
+            font-weight: 500;
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+        <form action="/CICreate" method="POST">
+            <h1>Images</h1>
+            <select name="Images">
+                {% for image in images %}
+                <option>{{ image.id }}</option>
+                {% endfor %}
+            </select>
+        
+            <h1>Network</h1>
+            <select name="redes">
+                {% for network in networks %}
+                <option>{{ network.id }}</option>
+                {% endfor %}
+            </select>
+        
+            <h1>Flavors</h1>
+            <select name="flavors">
+                {% for flavor in flavors %}
+                <option>{{ flavor.id }}</option>
+                {% endfor %}
+            </select>
+        
+            <h1>Keys</h1>
+            <select name="Keys">
+                {% for keypair in keypairs %}
+                <option>{{ keypair.name }}</option>
+                {% endfor %}
+            </select>
+        
+            <h1>Security_Groups</h1>
+            <select name="Security_Groups">
+                {% for security_group in security_groups %}
+                <option>{{ security_group.name }}</option>
+                {% endfor %}
+            </select>
+    
+            <input type="submit" value="Create Instance">
+    
+        </form>
+    
+</body>
+</html>
